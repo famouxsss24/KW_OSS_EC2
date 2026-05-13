@@ -458,6 +458,7 @@ def init_session():
 
 def goto(page_name):
     # 페이지 바꾸고 새로고침
+    print("[LOG] 페이지 이동: " + page_name, flush=True)
     st.session_state["page"] = page_name
     st.rerun()
 
@@ -515,6 +516,7 @@ def page_login():
             st.warning("아이디/비밀번호를 입력해주세요.")
         elif u in users and users[u] == hash_password(p):
             # 로그인 성공
+            print("[LOG] 로그인 성공: " + u, flush=True)
             st.session_state["login_user"] = u
             st.success(u + " 님 환영합니다.")
             reset_quiz()
@@ -648,6 +650,7 @@ def page_quiz():
 
         if st.button(next_label, use_container_width=True):
             answers[idx] = chosen
+            print("[LOG] Q" + str(idx + 1) + " 답변: " + options_text[chosen], flush=True)
             if is_last:
                 final = calc_result(answers, questions)
                 st.session_state["final_type"] = final
