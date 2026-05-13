@@ -14,32 +14,7 @@ AWS Learner Lab의 EC2 환경에 Streamlit 앱을 배포하고, 외부에서 퍼
 - `requirements.txt` — Python 패키지 의존성
 - `data/` — 배경 이미지 등 정적 리소스 (`users.json`, `stats.json`은 런타임 생성, gitignore)
 
-## EC2 실행 방법
-
-```bash
-# 1. 패키지 설치 (Amazon Linux 2023 기준)
-sudo dnf install -y python3 python3-pip git
-
-# 2. 저장소 클론
-git clone https://github.com/famouxsss24/KW_OSS_EC2.git
-cd KW_OSS_EC2
-
-# 3. 의존성 설치
-pip3 install -r requirements.txt
-
-# 4. Streamlit 실행 (외부 접속 허용)
-streamlit run app.py --server.port 8501 --server.address 0.0.0.0
-```
-
-### 보안 그룹 인바운드 규칙
-
-| 유형 | 포트 | 소스 |
-|------|------|------|
-| SSH | 22 | My IP |
-| Custom TCP | 8501 | 0.0.0.0/0 |
-
-브라우저 접속: `http://<EC2_PUBLIC_IP>:8501`
 
 ## 데모 영상
 
-(영상 업로드 후 추가 예정)
+[(영상 링크)](https://youtu.be/JJnRNXlSeQE)
